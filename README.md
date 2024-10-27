@@ -14,6 +14,46 @@ Then it creates 10 new random wallets funded with 1000 ETH and 1000 mock ERC20 t
 
 You can disperse and collect with these wallets using the endpoints described below.
 
+# Use the API
+
+You can make requests to the API with a tool like curl or Postman. Here are curl examples that you can copy and paste.
+
+```bash
+
+
+Disperse assets:
+
+curl --location 'http://127.0.0.1:8080/api/disperse_assets' \
+--header 'Content-Type: application/json' \
+--data '{
+    "amount": "25",
+    "is_percentage": true,
+    "from": 0,
+    "to": [
+        9,
+        2
+   ],
+   "asset_type": "Token"
+}'
+
+Collect assets:
+
+curl --location 'http://127.0.0.1:8080/api/collect_assets' \
+--header 'Content-Type: application/json' \
+--data '{
+    "amount": "50",
+    "is_percentage": true,
+    "from": [0, 1, 2, 3],
+    "to": 9,
+    "asset_type": "Token"
+}'
+
+Check balances for debugging:
+
+curl --location 'http://127.0.0.1:8080/api/balances'
+
+```
+
 # Endpoints
 
 All endpoints use wallet indexes to identify the sender and recipient wallets. Make sure the indexes provided in the request correspond to valid wallet addresses (there are 10 test wallets available, indexed from 0 to 9). 
@@ -43,6 +83,7 @@ This endpoint is used to distribute ETH or ERC20 tokens from a specified wallet 
 - `from`: Index of the sender wallet.
 - `to`: List of recipient wallet indexes.
 - `asset_type`: The type of asset to disperse. Can be either `Eth` or `Token`.
+
 
 ## 127.0.0.1:8080/api/collect_assets
 

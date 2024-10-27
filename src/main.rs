@@ -101,7 +101,6 @@ async fn disperse_assets(state: web::Data<State>, info: web::Json<DisperseReques
                 .map_err(|e| ErrorBadRequest(format!("Failed to get ETH balance: {}", e)))?;
     
             if is_percentage {
-                println!("Dispersing {}% of total ETH balance", info.amount);
                 amount_to_disperse = balance * parsed_amount / U256::from(100);
             }
  
@@ -135,7 +134,6 @@ async fn disperse_assets(state: web::Data<State>, info: web::Json<DisperseReques
                 ._0;
 
             if is_percentage {
-                println!("Dispersing {}% of total token balance", info.amount);
                 amount_to_disperse = balance * parsed_amount / U256::from(100);
             }
 
