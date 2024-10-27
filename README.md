@@ -21,7 +21,7 @@ You can make requests to the API with a tool like curl or Postman. Here are curl
 ```bash
 
 
-Disperse assets:
+Disperse tokens:
 
 curl --location 'http://127.0.0.1:8080/api/disperse_assets' \
 --header 'Content-Type: application/json' \
@@ -30,13 +30,41 @@ curl --location 'http://127.0.0.1:8080/api/disperse_assets' \
     "is_percentage": true,
     "from": 0,
     "to": [
-        9,
+        1,
         2
    ],
    "asset_type": "Token"
 }'
 
-Collect assets:
+Disperse ETH:
+
+curl --location 'http://127.0.0.1:8080/api/disperse_assets' \
+--header 'Content-Type: application/json' \
+--data '{
+    "amount": "25",
+    "is_percentage": true,
+    "from": 0,
+    "to": [
+        1,
+        2
+   ],
+   "asset_type": "Eth"
+}'
+
+
+Collect eth:
+
+curl --location 'http://127.0.0.1:8080/api/collect_assets' \
+--header 'Content-Type: application/json' \
+--data '{
+    "amount": "50",
+    "is_percentage": true,
+    "from": [0, 1, 2, 3],
+    "to": 9,
+    "asset_type": "Eth"
+}'
+
+Collect tokens:
 
 curl --location 'http://127.0.0.1:8080/api/collect_assets' \
 --header 'Content-Type: application/json' \
