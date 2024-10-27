@@ -28,7 +28,7 @@ sol!(
     "artifacts/MockToken.json"
 );
 
-// Disperse & collect contract.
+// Disperse contract.
 sol!(
     #[allow(missing_docs)]
     #[sol(rpc)]
