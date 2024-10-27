@@ -65,6 +65,7 @@ This endpoint is used to collect ETH or ERC20 tokens from multiple sender wallet
 - `is_percentage`: Boolean indicating if the amount is a percentage.
 - `from`: List of sender wallet indexes.
 - `to`: Index of the recipient wallet.
+- `asset_type`: The type of asset to collect. Can be either `Eth` or `Token`.
 
 ## 127.0.0.1:8080/api/balances
 
